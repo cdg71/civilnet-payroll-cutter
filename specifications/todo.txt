@@ -1,0 +1,7 @@
+@chore installer dépôt git, commitlint et standard version
+@chore CI sur pull request
+@chore publier un changelog
+@chore publier la première version
+@chore dependabot
+@chore migration vers typescript
+@chore migration vers deno

@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# testing
+/tests_results
+/specifications/samples
+/coverage
+
+# GDPR (Ignorer les PDFs qui dans ce projet contiennent très certainement des données de paye sensibles)
+.pdf
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+
+# cache
+.eslintcache

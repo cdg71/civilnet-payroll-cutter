@@ -1,0 +1,64 @@
+{
+  "name": "civilnet-payroll-cutter",
+  "version": "0.1.0",
+  "description": "Ce logiciel en ligne de commande fournit des utilitaires pour le découpage d'un fichier PDF global de payes généré par le logiciel civilnet RH en bulletins de salaires PDF individuels.",
+  "author": "Jean-Philippe Bourgeon <jeanphilippe.bourgeon@gmail.com> (https://www.linkedin.com/in/jpbourgeon)",
+  "license": "CECILL-C",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdg71/civilnet-payroll-cutter"
+  },
+  "bin": {
+    "cpc": "./src/cut.js",
+    "civilnet-payroll-cut": "./src/cut.js",
+    "cpd": "./src/dump.js",
+    "civilnet-payroll-dump": "./src/dump.js",
+    "cpm": "./src/mock.js",
+    "civilnet-payroll-mock": "./src/mock.js"
+  },
+  "scripts": {
+    "commit": "commit",
+    "cut": "node ./src/cut.js",
+    "dump": "node ./src/dump.js",
+    "mock": "node ./src/mock.js",
+    "lint": "eslint . --cache --fix",
+    "release": "standard-version",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [
+    "CivilNet",
+    "Payroll",
+    "PDF",
+    "node.js"
+  ],
+  "dependencies": {
+    "commander": "^5.1.0",
+    "cuid": "^2.1.8",
+    "moment": "^2.26.0",
+    "moment-duration-format": "^2.3.2",
+    "pdf-lib": "^1.7.0",
+    "pdf2json": "^1.2.0",
+    "threads": "^1.6.1",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/prompt-cli": "^8.3.5",
+    "babel-eslint": "^10.1.0",
+    "concat-stream": "^2.0.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "standard-version": "^8.0.0"
+  }
+}

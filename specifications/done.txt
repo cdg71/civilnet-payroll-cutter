@@ -1,0 +1,28 @@
+x 2020-05-28 @chore Tutoriel de construction d'une CLI <https://www.sitepoint.com/javascript-command-line-interface-cli-node-js/>
+x 2020-05-30 @chore installer jest pour les tests
+x 2020-05-30 @docs installation package + commande globale
+x 2020-05-30 @feat +cli définir les paramètres de la cli <http://docopt.org/>
+x 2020-05-30 @feat +cli script exécutable
+x 2020-05-30 @refactor transformer la logique de dossiers d'entrées/sortie en logique de paramètres en ligne de commande cli <https://www.npmjs.com/package/commander#declaring-program-variable>
+x 2020-06-04 @refactor découpler le code (lib, index, bin)
+x 2020-06-07 @chore installer lint
+x 2020-06-08 @docs paramètres de la cli
+x 2020-06-08 @feat cut as you go
+x 2020-06-08 @feat découpage d'un fichier PDF de payes CIRIL en fonction de son index
+x 2020-06-08 @feat écrire la sortie dans un fichier journal <https://stackoverflow.com/questions/16155932/redirecting-output-to-a-log-file-using-node-js>
+x 2020-06-08 @feat lister les options depuis la ligne de commande (--help)
+x 2020-06-08 @feat log : créer un logger <https://github.com/pimterry/loglevel>, <https://github.com/kutuluk/loglevel-plugin-prefix>, 
+x 2020-06-08 @feat parser un fichier de payes CIRIL
+x 2020-06-08 @feat quitter le script et/ou tuer le processus après un certain délai, exprimé en secondes, au delà duquel on estime que le découpage est bloqué (300 secondes par défaut) <https://stackabuse.com/how-to-exit-in-node-js>
+x 2020-06-08 @feat sortie standard pour signaler la réussite ou l'échec <https://nodejs.org/api/process.html#process_event_exit>
+x 2020-06-08 @perf paralléliser l'écriture dans une workerpool pour accélerer la génération traitement <https://threads.js.org>
+x 2020-06-08 @test obtenir plus de fichiers de tests to:michaudl@cdg71.fr
+x 2020-06-09 @docs quelle licence libre <https://aful.org/ressources/licences-libres> ?
+x 2020-06-09 @feat clean
+x 2020-06-09 @feat dry-run
+x 2020-06-09 @feat pdf compression <https://stackoverflow.com/questions/43728147/how-to-compress-a-pdf-with-node?noredirect=1>
+x 2020-06-14 @feat Retirer la protection et compresser le fichier d'entrée avec puppeteer <https://github.com/puppeteer/puppeteer/blob/v3.3.0/docs/api.md#pagepdfoptions> status:dropped
+x 2020-06-15 @chore readme à jour
+x 2020-06-15 @feat script pour faire un dump PDF afin d'étudier sa structure et choisir les options à passer au script principal
+x 2020-06-17 @test réécrire les fonctions du parser avec pdf2json
+x 2020-06-18 @test écrire des tests automatisés d'intégration <https://medium.com/@zorrodg/integration-tests-on-node-js-cli-part-1-why-and-how-fa5b1ba552fe> ; utiliser le snapshoting du dossier de sortie <https://github.com/marc136/node-folder-hash> ; <https://jestjs.io/docs/en> ; <https://www.npmjs.com/package/mock-fs>
