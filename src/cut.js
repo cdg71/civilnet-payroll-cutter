@@ -19,7 +19,6 @@ const { getPayrollStructure } = require("./lib/parser");
 // Commander configuration
 new Command()
   .storeOptionsAsProperties(false)
-  .passCommandToAction(false)
   .name(" ")
   .usage("`cpc [options]` ou `civilnet-payroll-cut [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")

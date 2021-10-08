@@ -19,7 +19,6 @@ const { getStickBackwardStructure } = require("./lib/parser");
 // Commander configuration
 new Command()
   .storeOptionsAsProperties(false)
-  .passCommandToAction(false)
   .name(" ")
   .usage("`node stick-backward [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
