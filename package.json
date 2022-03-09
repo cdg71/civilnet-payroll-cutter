@@ -43,7 +43,7 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "pdf-lib": "^1.17.1",
-    "pdf2json": "^1.2.5",
+    "pdf2json": "^2.0.0",
     "threads": "^1.7.0",
     "winston": "^3.6.0",
     "winston-daily-rotate-file": "^4.6.1"

@@ -24,7 +24,7 @@ const getPayrollStructure = async (options) => {
         };
         let parent;
         let hasFollower = false;
-        const index = pdfData.formImage.Pages.reduce((pages, page, pageNum) => {
+        const index = pdfData.Pages.reduce((pages, page, pageNum) => {
           if (!hasFollower) {
             // Première page d'une série : on ajoute une page à l'index, on extrait les textes et on cherche s'il y a une page suivante
             // parent = pageNum;
@@ -90,7 +90,7 @@ const getStickBackwardStructure = async (options) => {
           pages: [],
         };
         let parent;
-        const index = pdfData.formImage.Pages.reduce((docs, page, pageNum) => {
+        const index = pdfData.Pages.reduce((docs, page, pageNum) => {
           const delimiter = decodeURIComponent(
             page.Texts[parseInt(options.parameter2) - 1].R[0].T
           );
@@ -128,7 +128,7 @@ const dumpPdf = async (file) => {
         reject(errData.toString())
       );
       pdfParser.on("pdfParser_dataReady", (pdfData) => {
-        const index = pdfData.formImage.Pages.map((page) =>
+        const index = pdfData.Pages.map((page) =>
           page.Texts.map((text) => decodeURIComponent(text.R[0].T))
         );
         resolve(index);
