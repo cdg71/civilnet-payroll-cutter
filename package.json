@@ -1,6 +1,6 @@
 {
   "name": "civilnet-payroll-cutter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Ce logiciel en ligne de commande fournit des utilitaires pour le découpage d'un fichier PDF global de payes généré par le logiciel civilnet RH en bulletins de salaires PDF individuels.",
   "author": "Jean-Philippe Bourgeon <jeanphilippe.bourgeon@gmail.com> (https://www.linkedin.com/in/jpbourgeon)",
   "license": "CECILL-C",
@@ -38,28 +38,28 @@
     "node.js"
   ],
   "dependencies": {
-    "commander": "^8.2.0",
+    "commander": "^9.0.0",
     "cuid": "^2.1.8",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "pdf-lib": "^1.16.0",
-    "pdf2json": "^1.2.5",
+    "pdf-lib": "^1.17.1",
+    "pdf2json": "^2.0.0",
     "threads": "^1.7.0",
-    "winston": "^3.3.3",
-    "winston-daily-rotate-file": "^4.5.5"
+    "winston": "^3.6.0",
+    "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@commitlint/prompt-cli": "^13.2.0",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@commitlint/prompt-cli": "^16.2.1",
     "babel-eslint": "^10.1.0",
     "concat-stream": "^2.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.0",
-    "jest": "^27.2.5",
-    "prettier": "^2.4.1",
-    "standard-version": "^9.3.1"
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2"
   }
 }
