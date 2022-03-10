@@ -38,6 +38,7 @@
     "node.js"
   ],
   "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
     "commander": "^9.0.0",
     "cuid": "^2.1.8",
     "moment": "^2.29.1",
@@ -52,7 +53,6 @@
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
     "@commitlint/prompt-cli": "^16.2.1",
-    "babel-eslint": "^10.1.0",
     "concat-stream": "^2.0.0",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.5.0",
