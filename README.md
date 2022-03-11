@@ -6,9 +6,12 @@ Il peut fonctionner dans d'autres cas de figures comparables mais a été dével
 
 ## Sommaire
 
-- [Pré-requis](#pré-requis)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
+- [Démarrage rapide](#démarrage-rapide)
+  - [Pré-requis](#pré-requis)
+  - [Installation](#installation)
+  - [Configuration d'une tâche planifiée](#configuration-dune-tâche-planifiée)
+  - [Mise à jour](#mise-à-jour)
+- [Scripts disponibles](#scripts-disponibles)
   - [Script d'exécution](#script-dexécution)
   - [Script de découpage](#script-de-découpage)
   - [Script d'extraction](#script-dextraction)
@@ -17,21 +20,36 @@ Il peut fonctionner dans d'autres cas de figures comparables mais a été dével
 - [Contribution](#contribution)
 - [Licence](#licence)
 
-## Pré-requis
+## Démarrage rapide
+
+### Pré-requis
 
 Le logiciel fonctionne dans l'environnement d'exécution node.js
 
 Une version récente de git, [node.js](https://nodejs.org/en/) (12x LTS et supérieures) et du gestionnaire de package npm (6.14.4 et supérieures - inclus avec l'installeur de node.js) sont nécessaires.
 
-## Installation
+### Installation
 
 Cloner le dépôt avec git dans le dossier cible `git clone https://github.com/cdg71/civilnet-payroll-cutter` et installer avec l'exécutable npm `npm install`.
+
+### Configuration d'une tâche planifiée
+
+Sous Windows, une tâche planifiée peut être configurée avec les options suivantes :
+
+- Actions > Démarrer un programme
+  - Programme / script : `npm`
+  - Ajouter des arguments : `run exec -- --input C:\chemin\du\dossier\d\entree --working-dir C:\chemin\du\dossier\de\travail --output C:\chemin\du\dossier\de\sortie --log C:\chemin\du\dossier\de\log --clean`
+  - Commencer dans : `C:\chemin\de\l\outil\civinet-payroll-cutter`
+
+### Mise à jour
+
+Pour mettre l'outil à jour, exécutez `git pull` suivi de `npm install` dans le dossier d'installation.
+
+## Scripts disponibles
 
 ### Script d'exécution
 
 Ce script est un script d'orchestration pour faciliter le déploiement par tâche planifiée.
-
-#### Invocation directe
 
 Pour chaque PDF disponible dans le dossier d'entrée, le script d'exécution le déplace dans le dossier de travail et invoque civilnet-payroll-cutter avec les paramètres fournis. Il accepte comme paramètres spécifiques un dossier d'entrée et un dossier de travail. les autres paramètres sont identiques à civilnet-payroll-cutter.
 
@@ -57,22 +75,6 @@ Les autres options du script d'exécution sont transférées au script de décou
 **Exemple:**
 
 `npm run exec -- -i c:\%userprofile%\Documents\entree -w c:\%userprofile%\Documents\sortie -w c:\%userprofile%\Documents\temp -o c:\%userprofile%\Documents\sortie`
-
-#### Invocation par script batch
-
-Pour faciliter le déploiement sur serveur windows un exemple de script batch qui invoque le script d'exécution est disponible dans le dossier du projet
-`./exec.bat.sample`. Il suffit de le renommer, de le personnaliser et de l'invoquer avec une tâche planifiée, par exemple 1x par jour.
-
-```batch
-@echo off
-cd C:\chemin\de\l\outil\civinet-payroll-cutter
-npm run exec -- ^
---input C:\chemin\du\dossier\d\entree ^
---working-dir C:\chemin\du\dossier\de\travail ^
---output C:\chemin\du\dossier\de\sortie ^
---log C:\chemin\du\dossier\de\log ^
---clean
-```
 
 ### Script de découpage
 
@@ -162,7 +164,7 @@ Extrait la structure d'un fichier PDF global de payes généré par le logiciel 
 
 `npm run dump -- -i c:\%userprofile%\Documents\Civilnet_Payroll.pdf -o c:\%userprofile%\Documents`
 
-## Script de génération
+### Script de génération
 
 **Usage :**
 
