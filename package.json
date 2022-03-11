@@ -1,6 +1,6 @@
 {
   "name": "civilnet-payroll-cutter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Ce logiciel en ligne de commande fournit des utilitaires pour le découpage d'un fichier PDF global de payes généré par le logiciel civilnet RH en bulletins de salaires PDF individuels.",
   "author": "Jean-Philippe Bourgeon <jeanphilippe.bourgeon@gmail.com> (https://www.linkedin.com/in/jpbourgeon)",
   "license": "CECILL-C",
