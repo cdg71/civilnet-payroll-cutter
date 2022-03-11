@@ -54,6 +54,8 @@ new Command()
       } catch (error) {
         // On ignore les erreurs éventuelles et on poursuit le script
         console.log(error);
+      } finally {
+        process.exit();
       }
     }
   })
