@@ -9,20 +9,19 @@ Il peut fonctionner dans d'autres cas de figures comparables mais a été dével
 - [Pré-requis](#pré-requis)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
+  - [Script d'exécution](#script-dexécution)
   - [Script de découpage](#script-de-découpage)
   - [Script d'extraction](#script-dextraction)
   - [Script de génération](script-de-génération)
-- [Contraintes et limitations](#contraintes-et-limitations)
 - [Support](#support)
 - [Contribution](#contribution)
-- [Journal des modifications](#journal-des-modifications)
 - [Licence](#licence)
 
 ## Pré-requis
 
 Le logiciel fonctionne dans l'environnement d'exécution node.js
 
-Une version récente de [node.js](https://nodejs.org/en/) (12.18.0 LTS et supérieures) et du gestionnaire de package npm (6.14.4 et supérieures - inclus avec l'installeur de node.js) sont nécessaires.
+Une version récente de [node.js](https://nodejs.org/en/) (12x LTS et supérieures) et du gestionnaire de package npm (6.14.4 et supérieures - inclus avec l'installeur de node.js) sont nécessaires.
 
 ## Installation
 
@@ -31,6 +30,52 @@ La commande s'installe de manière globale depuis la console en ligne de command
 `npm install -g cdg71/civilnet-payroll-cutter`
 
 Les scripts sont automatiquement ajoutés dans le path.
+
+### Script d'exécution
+
+Ce script est un script d'orchestration pour faciliter le déploiement par tâche planifiée.
+
+#### Invocation directe
+
+Pour chaque PDF disponible dans le dossier d'entrée, le script d'exécution le déplace dans le dossier de travail et invoque civilnet-payroll-cutter avec les paramètres fournis. Il accepte comme paramètres spécifiques un dossier d'entrée et un dossier de travail. les autres paramètres sont identiques à civilnet-payroll-cutter.
+
+**Usage:**
+
+`cpx [options]` ou `civilnet-payroll-execute [options]`
+
+**Options spécifiques :**
+
+- `-i, --input <folder>`  
+  Chemin du dossier d'entrée. (obligatoire)
+- `-w, --working-dir <folder>`  
+  Chemin du dossier de travail. (obligatoire)
+- `-h, --help `  
+  Affiche l'aide.
+- [...]
+  d'autres options sont disponibles, voir ci-après ...
+
+**Autres options :**
+
+Les autres options du script d'exécution sont transférées au script de découpage. Voir le détail dans le paragraphe dédié.
+
+**Exemple:**
+
+`cpx -i c:\%userprofile%\Documents\entree -w c:\%userprofile%\Documents\sortie -w c:\%userprofile%\Documents\temp -o c:\%userprofile%\Documents\sortie`
+
+#### Invocation par script batch
+
+Pour faciliter le déploiement sur serveur windows un exemple de script batch qui invoque le script d'exécution est disponible dans le dossier du projet
+`src/exec.bat.sample`. Il suffit de le renommer, de le personnaliser et de l'invoquer avec une tâche planifiée, par exemple 1x par jour.
+
+```shell
+@echo off
+node ./src/exec ^
+--input C:\chemin\du\dossier\d\entree ^
+--working-dir C:\chemin\du\dossier\de\travail ^
+--output C:\chemin\du\dossier\de\sortie ^
+--log C:\chemin\du\dossier\de\log ^
+--clean
+```
 
 ### Script de découpage
 
@@ -65,7 +110,7 @@ Découpe un fichier PDF global de payes généré par le logiciel civilnet RH en
 - `-l, --log <folder>`  
   Chemin du dossier de journalisation. Par défaut, un fichier de journalisation par jour est créé dans ce dossier. La rotation des fichiers de journalisation est assurée automatiquement avec une durée de rétention de 99 jours par défaut (3 mois). Ce comportement est configurable avec le paramètre --max-files. Si le dossier de journalisation n'est pas renseigné, la journalisation est désactivée.
 - `-M, --max-files <string>`  
-  Indique le nombre maximum de fichiers de journalisation à conserver. La valeur est transmise à l'option maxFiles du transport [winston-daily-rotate-file](https://github.com/winstonjs/winston-daily-rotate-file) chargé de la journalisation. (default: "99d")
+  Indique le nombre maximum de fichiers de journalisation à conserver. La valeur est transmise à l'option maxFiles du transport [winston-daily-rotate-file](https://github.com/winstonjs/winston-daily-rotate-file) chargé de la journalisation. (default: "365d")
 - `-s, --separateur <integer>`  
   Valeur du séparateur indiquant que la page suivante fait partie du bulletin courant. (default: ".../...")
 - `-n, --nom <integer>`  
@@ -79,7 +124,7 @@ Découpe un fichier PDF global de payes généré par le logiciel civilnet RH en
 - `-P, --pool-size <integer>`  
   Taille de la ferme de processus dédiés au multithreading. Cette option s'adapte automatiquement par défaut au nombre de CPUs disponibles. (default: "12")
 - `-t, --timeout`
-  Délai d'expiration du taitement, exprimé en secondes. Le script se termine alors automatiquement en erreur au delà de ce délai. (default: "300")
+  Délai d'expiration du traitement, exprimé en secondes. Le script se termine alors automatiquement en erreur au delà de ce délai. (default: "300")
 - `-h, --help`  
   Affiche l'aide.
 
@@ -155,11 +200,7 @@ Pour toute assistance, vous pouvez utiliser le système de ticketing du dépôt 
 
 Les contributions sont les bienvenues. Vous pouvez les soumettre sous la forme de pull requests dans le dépôt Github du projet.
 
-Avant que votre pull request soit acceptée, il faudra notamment ajouter des tests d'intégrations aux nouvelles fonctionnalités et que l'ensemble des tests statiques et automatiques passent, pour ne pas introduire de régressions.
-
-## Journal des modifications
-
-Le journal des modifications est disponible dans le fichier [CHANGELOG.md](./changelog.md).
+Avant que votre pull request ne soit acceptée, il faudra notamment ajouter des tests d'intégrations aux nouvelles fonctionnalités et que l'ensemble des tests statiques et automatiques passent, pour ne pas introduire de régressions.
 
 ## Licence
 

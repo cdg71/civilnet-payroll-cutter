@@ -26,18 +26,18 @@ describe("En tant qu'utilisateur je veux découper un train de paye au format PD
   });
 
   // Après les tests, on supprime le dossier de la suite de tests
-  // afterAll(async () => {
-  //   try {
-  //     let exists = false;
-  //     exists = await fs.stat(testSuiteFolder).catch(() => null);
-  //     if (exists)
-  //       await fs.rmdir(testSuiteFolder, {
-  //         recursive: true,
-  //       });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
+  afterAll(async () => {
+    try {
+      let exists = false;
+      exists = await fs.stat(testSuiteFolder).catch(() => null);
+      if (exists)
+        await fs.rmdir(testSuiteFolder, {
+          recursive: true,
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   test("découper un fichier PDF avec une feuille de paye d'une page", async () => {
     expect.assertions(1);

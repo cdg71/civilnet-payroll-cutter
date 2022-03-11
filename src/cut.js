@@ -18,7 +18,6 @@ const { getPayrollStructure } = require("./lib/parser");
 
 // Commander configuration
 new Command()
-  .storeOptionsAsProperties(false)
   .name(" ")
   .usage("`cpc [options]` ou `civilnet-payroll-cut [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
@@ -56,7 +55,7 @@ new Command()
   .option(
     "-M, --max-log-files <string>",
     "Indique le nombre maximum de fichiers de journalisation à conserver. La valeur est transmise à l'option maxFiles du transport [winston-daily-rotate-file](https://github.com/winstonjs/winston-daily-rotate-file) chargé de la journalisation.",
-    "99d"
+    "365d"
   )
   .option(
     "-s, --separateur <integer>",
@@ -90,7 +89,7 @@ new Command()
   )
   .option(
     "-t, --timeout <integer>",
-    "Délai d'expiration du taitement, exprimé en secondes. Le script se termine alors automatiquement en erreur au delà de ce délai.",
+    "Délai d'expiration du traitement, exprimé en secondes. Le script se termine alors automatiquement en erreur au delà de ce délai.",
     "300"
   )
   .helpOption("-h, --help", "Affiche l'aide.")
@@ -124,7 +123,7 @@ new Command()
     process.on("unhandledRejection", (error) => {
       logger.error("Exception non gérée", error);
     });
-    logger.info("Début de la journalisation.");
+    logger.info("\nDébut de la journalisation.");
     logger.info("Paramètres sélectionnés.", options);
 
     // multi threading
@@ -181,7 +180,12 @@ new Command()
       logger.info(`Fin du traitement`, {
         duration,
       });
-      process.exit();
+      logger.info("Fin de la journalisation.");
+      logger.info("---");
+      logger.on("finish", () => {
+        logger.end();
+        process.exit();
+      });
     } catch (error) {
       // Gestion des erreurs
       const end = new moment();
@@ -193,7 +197,12 @@ new Command()
       logger.error("Erreur dans le script principal ", { error, duration });
       // On termine tous les processus de force
       pool.terminate(true);
-      process.abort();
+      logger.info("Fin de la journalisation.");
+      logger.info("---");
+      logger.on("finish", () => {
+        logger.end();
+        process.abort();
+      });
     }
   })
   .parse(process.argv);

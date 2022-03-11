@@ -11,7 +11,6 @@ const rwf = require("../utils/recursive_write_file");
 
 // Commander configuration
 new Command()
-  .storeOptionsAsProperties(false)
   .name(" ")
   .usage("`cpd [options]` ou `civilnet-payroll-dump [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
