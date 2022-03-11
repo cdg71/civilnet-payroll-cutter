@@ -2,8 +2,6 @@
 const fs = require("fs").promises;
 const path = require("path");
 const meta = require("../package.json");
-// const os = require("os");
-// const cpus = os.cpus().length.toString();
 const { Command } = require("commander");
 const run = require("../utils/runner");
 

@@ -7,10 +7,11 @@
 /coverage
 
 # GDPR (Ignorer les PDFs qui dans ce projet contiennent très certainement des données de paye sensibles)
-.pdf
+*.pdf
 
 # misc
 .DS_Store
+*.bat
 
 # debug
 npm-debug.log*
