@@ -7,7 +7,7 @@ const run = require("../utils/runner");
 
 new Command()
   .name(" ")
-  .usage("`cpx [options]` ou `civilnet-payroll-execute [options]`")
+  .usage("`npm run exec -- [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
   .description(
     "Pour chaque PDF disponible dans le dossier d'entrée, le script d'exécution le déplace dans le dossier de travail et invoque civilnet-payroll-cutter avec les paramètres fournis. Il accepte comme paramètres spécifiques un dossier d'entrée et un dossier de travail. les autres paramètres sont identiques à civilnet-payroll-cutter."

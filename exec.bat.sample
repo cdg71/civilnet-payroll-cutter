@@ -1,5 +1,6 @@
 @echo off
-node ./src/exec ^
+cd C:\chemin\de\l\outil\civinet-payroll-cutter
+npm run exec -- ^
 --input C:\chemin\du\dossier\d\entree ^
 --working-dir C:\chemin\du\dossier\de\travail ^
 --output C:\chemin\du\dossier\de\sortie ^

@@ -12,7 +12,7 @@ const rwf = require("../utils/recursive_write_file");
 // Commander configuration
 new Command()
   .name(" ")
-  .usage("`cpd [options]` ou `civilnet-payroll-dump [options]`")
+  .usage("`npm run dump -- [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
   .description(
     "Extrait la structure d'un fichier PDF global de payes généré par le logiciel civilnet RH au format json (zones de textes regroupées par page)."

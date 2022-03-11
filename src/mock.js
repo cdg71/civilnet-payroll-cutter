@@ -12,7 +12,7 @@ const rwf = require("../utils/recursive_write_file");
 // Commander configuration
 new Command()
   .name(" ")
-  .usage("`cpm [options]` ou `civilnet-payroll-mock [options]`")
+  .usage("`npm run mock -- [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
   .description(
     "Génère un fichier PDF qui imite la structure d'un fichier de payes généré par le logiciel civilnet RH."

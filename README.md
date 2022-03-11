@@ -21,15 +21,11 @@ Il peut fonctionner dans d'autres cas de figures comparables mais a été dével
 
 Le logiciel fonctionne dans l'environnement d'exécution node.js
 
-Une version récente de [node.js](https://nodejs.org/en/) (12x LTS et supérieures) et du gestionnaire de package npm (6.14.4 et supérieures - inclus avec l'installeur de node.js) sont nécessaires.
+Une version récente de git, [node.js](https://nodejs.org/en/) (12x LTS et supérieures) et du gestionnaire de package npm (6.14.4 et supérieures - inclus avec l'installeur de node.js) sont nécessaires.
 
 ## Installation
 
-La commande s'installe de manière globale depuis la console en ligne de commande :
-
-`npm install -g cdg71/civilnet-payroll-cutter`
-
-Les scripts sont automatiquement ajoutés dans le path.
+Cloner le dépôt avec git dans le dossier cible `git clone https://github.com/cdg71/civilnet-payroll-cutter` et installer avec l'exécutable npm `npm install`.
 
 ### Script d'exécution
 
@@ -41,7 +37,7 @@ Pour chaque PDF disponible dans le dossier d'entrée, le script d'exécution le 
 
 **Usage:**
 
-`cpx [options]` ou `civilnet-payroll-execute [options]`
+`npm run exec -- [options]`
 
 **Options spécifiques :**
 
@@ -60,16 +56,17 @@ Les autres options du script d'exécution sont transférées au script de décou
 
 **Exemple:**
 
-`cpx -i c:\%userprofile%\Documents\entree -w c:\%userprofile%\Documents\sortie -w c:\%userprofile%\Documents\temp -o c:\%userprofile%\Documents\sortie`
+`npm run exec -- -i c:\%userprofile%\Documents\entree -w c:\%userprofile%\Documents\sortie -w c:\%userprofile%\Documents\temp -o c:\%userprofile%\Documents\sortie`
 
 #### Invocation par script batch
 
 Pour faciliter le déploiement sur serveur windows un exemple de script batch qui invoque le script d'exécution est disponible dans le dossier du projet
-`src/exec.bat.sample`. Il suffit de le renommer, de le personnaliser et de l'invoquer avec une tâche planifiée, par exemple 1x par jour.
+`./exec.bat.sample`. Il suffit de le renommer, de le personnaliser et de l'invoquer avec une tâche planifiée, par exemple 1x par jour.
 
-```shell
+```batch
 @echo off
-node ./src/exec ^
+cd C:\chemin\de\l\outil\civinet-payroll-cutter
+npm run exec -- ^
 --input C:\chemin\du\dossier\d\entree ^
 --working-dir C:\chemin\du\dossier\de\travail ^
 --output C:\chemin\du\dossier\de\sortie ^
@@ -89,7 +86,7 @@ Vous pouvez également préparer le fichier avec une autre imprimante PDF comme,
 
 **Usage :**
 
-`cpc [options]` ou `civilnet-payroll-cut [options]`
+`npm run cut -- [options]`
 
 Découpe un fichier PDF global de payes généré par le logiciel civilnet RH en bulletins de salaires individuels au format PDF.
 
@@ -130,7 +127,7 @@ Découpe un fichier PDF global de payes généré par le logiciel civilnet RH en
 
 **Exemple :**
 
-`cpc -i c:\%userprofile%\Documents\Civilnet_Payroll.pdf -o c:\%userprofile%\Documents`
+`npm run cut -- -i c:\%userprofile%\Documents\Civilnet_Payroll.pdf -o c:\%userprofile%\Documents`
 
 **Format de sortie :**
 
@@ -144,7 +141,7 @@ BS_9999999999999_99_2020-03_DUPONT_JEAN_378hpi5.pdf
 
 **Usage :**
 
-`cpd [options]` ou `civilnet-payroll-dump [options]`
+`npm run dump -- [options]`
 
 Extrait la structure d'un fichier PDF global de payes généré par le logiciel civilnet RH au format json (zones de textes regroupées par page).
 
@@ -163,13 +160,13 @@ Extrait la structure d'un fichier PDF global de payes généré par le logiciel 
 
 **Exemple :**
 
-`cpc-dump -i c:\%userprofile%\Documents\Civilnet_Payroll.pdf -o c:\%userprofile%\Documents`
+`npm run dump -- -i c:\%userprofile%\Documents\Civilnet_Payroll.pdf -o c:\%userprofile%\Documents`
 
 ## Script de génération
 
 **Usage :**
 
-`cpm [options]` ou `civilnet-payroll-mock [options]`
+`npm run mock -- [options]`
 
 Génère un fichier PDF qui imite la structure d'un fichier de payes généré par le logiciel civilnet RH.
 
@@ -190,7 +187,7 @@ Génère un fichier PDF qui imite la structure d'un fichier de payes généré p
 
 **Exemple :**
 
-`cpm -o c:\%userprofile%\Documents\Civilnet_Payroll.pdf -n 6 -p "[2, 4]"`
+`npm run mock -- -o c:\%userprofile%\Documents\Civilnet_Payroll.pdf -n 6 -p "[2, 4]"`
 
 ## Support
 

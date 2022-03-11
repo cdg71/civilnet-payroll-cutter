@@ -8,19 +8,12 @@
     "type": "git",
     "url": "https://github.com/cdg71/civilnet-payroll-cutter"
   },
-  "bin": {
-    "cpc": "./src/cut.js",
-    "civilnet-payroll-cut": "./src/cut.js",
-    "cpd": "./src/dump.js",
-    "civilnet-payroll-dump": "./src/dump.js",
-    "cpm": "./src/mock.js",
-    "civilnet-payroll-mock": "./src/mock.js"
-  },
   "scripts": {
     "commit": "commit",
     "cut": "node ./src/cut.js",
     "dump": "node ./src/dump.js",
     "mock": "node ./src/mock.js",
+    "exec": "node ./src/exec.js",
     "lint": "eslint . --cache --fix",
     "release": "standard-version",
     "test": "jest",

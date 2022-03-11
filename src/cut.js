@@ -19,7 +19,7 @@ const { getPayrollStructure } = require("./lib/parser");
 // Commander configuration
 new Command()
   .name(" ")
-  .usage("`cpc [options]` ou `civilnet-payroll-cut [options]`")
+  .usage("`npm run cut -- [options]`")
   .version(meta.version, "-v, --version", "affiche la version actuelle.")
   .description(
     "Découpe un fichier PDF global de payes généré par le logiciel civilnet RH en bulletins de salaires individuels au format PDF."
